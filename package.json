@@ -1,0 +1,15 @@
+{
+  "name": "rest_api_mongodb",
+  "version": "0.0.1",
+  "description": "Node.js server that connects to a database and serves a RESTful API through HTTP Protocol",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Younes Henni & Mohammadi Aymen & Fisli Haythem",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.3.8",
+    "restify": "^7.2.2"
+  }
+}
