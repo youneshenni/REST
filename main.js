@@ -11,14 +11,8 @@ server.listen(config.PORT, () => {
         )
 })
 const db = mongoose.connection;
-const Scheme = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    birthDate: Date,
-    town: String,
-    Promotion: Number,
-})
-Student = mongoose.model('Student', Scheme)
+Student = require('./models/Student')
+
 db.on('error', console.error.bind(console, 'Connection error:\n'));
 db.once('open', () => {
     //Routes
