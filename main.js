@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var restify = require('restify');
-db_name = "mongo"
-mongoose.connect(`mongodb://localhost/${db_name}`);
+mongoose.connect(`mongodb://localhost/mongo`);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error:\n'));
 db.once('open', function() {
