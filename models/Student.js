@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const timestamp = require('mongoose-timestamp')
 
 const StudentSchema = new mongoose.Schema({
     firstName: String,
@@ -7,5 +8,9 @@ const StudentSchema = new mongoose.Schema({
     town: String,
     Promotion: Number,
 })
-Student = mongoose.model('Student', StudentSchema)
+
+StudentSchema.plugin(timestamp)
+
+
+const Student = mongoose.model('Student', StudentSchema)
 module.exports = Student

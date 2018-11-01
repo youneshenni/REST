@@ -11,7 +11,6 @@ server.listen(config.PORT, () => {
         )
 })
 const db = mongoose.connection;
-Student = require('./models/Student')
 
 db.on('error', console.error.bind(console, 'Connection error:\n'));
 db.once('open', () => {
