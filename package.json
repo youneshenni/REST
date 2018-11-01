@@ -4,7 +4,8 @@
   "description": "Node.js server that connects to a database and serves a RESTful API through HTTP Protocol",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js",
+    "dev": "nodemon main.js"
   },
   "author": "Younes Henni & Mohammadi Aymen & Fisli Haythem",
   "license": "MIT",
