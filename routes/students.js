@@ -20,4 +20,5 @@ module.exports = server => {
         newStudent.save(err => {if (err) return console.error(err)})
         res.send(201)
     })
+    server.put('/students/:id')
 }
