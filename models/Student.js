@@ -4,9 +4,10 @@ const timestamp = require('mongoose-timestamp')
 const StudentSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
+    email: String,
     birthDate: Date,
     town: String,
-    Promotion: Number,
+    promotion: Number,
 })
 
 StudentSchema.plugin(timestamp)
