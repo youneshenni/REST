@@ -4,6 +4,7 @@ const Student = require('../models/Student.js')
 module.exports = server => {
 
     server.get('/students/', (req, res, next) => {
+        //Student.findOneAndRemove({firstName: "Haythem"})
         Student.find(req.params, (err, documents) => {
             if (err) return console.error(err)
             res.send(documents)
@@ -29,28 +30,24 @@ module.exports = server => {
         res.send(201)
     })
     //PUT   DELETE
-    server.put('/students/:id', (req, res, next) => {
+    server.put('/students/:id', (req, res, next) => {        
         if (!req.is('application/json')) {
             return next(new errors.InvalidContentError('application/json format expected'))
         }
-        try {
-            var student = Student.findOneAndUpdate({ _id: req.params.id}, req.body)
-            student.save()
+        Student.findByIdAndUpdate(req.params.id.trim(), req.body, (err, user) => {
+            if(err) console.error(err);
+            
+            console.log(user);
+            
             res.send(200)
-            next()
-        } catch (err) {
-            return next(new errors.ResourceNotFoundError(`There is no Student with ${req.params.id} as ID`))
-        }
+        })
+        next()
+
     })
 
-    server.del('/students/:_id', (req, res, next) => {
-        try {
-            var student = Student.findOneAndRemove(req.params)
-            res.send(204)
-            next()
-        } catch (err) {
-            return next(new errors.ResourceNotFoundError(`There is no Student with ${req.params.id} as ID`))
-        }
-
+    server.del('/students/:id', (req, res, next) => {
+        return Student.findOneAndDelete({_id: req.params.id}, (user) => {
+            return res.send(204)            
         })
+    })
 }
